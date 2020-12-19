@@ -1,9 +1,10 @@
-package com.sevenlearn.nikestore
+package com.sevenlearn.nikestore.feature.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.sevenlearn.nikestore.R
+import com.sevenlearn.nikestore.common.NikeActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : NikeActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
