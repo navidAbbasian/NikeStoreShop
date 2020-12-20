@@ -8,5 +8,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textAppearance="?textAppearanceHeadline1"
-        android:text="Main"/>
+        android:text="Cart"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
