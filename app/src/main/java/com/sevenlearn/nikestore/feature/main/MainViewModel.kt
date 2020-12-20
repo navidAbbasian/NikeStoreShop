@@ -1,6 +1,5 @@
 package com.sevenlearn.nikestore.feature.main
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.sevenlearn.nikestore.common.NikeViewModel
 import com.sevenlearn.nikestore.data.Product
@@ -14,9 +13,11 @@ import timber.log.Timber
 class MainViewModel(productRepository: ProductRepository) : NikeViewModel() {
     val productsLiveData = MutableLiveData<List<Product>>()
     init {
+        progressBarLiveData.value=true
         productRepository.getProducts()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
+            .doFinally { progressBarLiveData.value=false }
             .subscribe(object : SingleObserver<List<Product>> {
                 override fun onSubscribe(d: Disposable) {
                     compositeDisposable.add(d)

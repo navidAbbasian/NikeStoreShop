@@ -1,7 +1,6 @@
 package com.sevenlearn.nikestore.feature.main
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +25,10 @@ class MainFragment: NikeFragment() {
         super.onViewCreated(view, savedInstanceState)
         mainViewModel.productsLiveData.observe(this){
             Timber.i(it.toString())
+        }
+
+        mainViewModel.progressBarLiveData.observe(this){
+            setProgressIndicator(it)
         }
 
     }
