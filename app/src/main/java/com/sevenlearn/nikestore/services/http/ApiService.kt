@@ -1,5 +1,6 @@
 package com.sevenlearn.nikestore.services.http
 
+import com.sevenlearn.nikestore.data.Banner
 import com.sevenlearn.nikestore.data.Product
 import io.reactivex.Single
 import retrofit2.Retrofit
@@ -11,6 +12,9 @@ interface ApiService {
 
     @GET("product/list")
     fun getProducts(): Single<List<Product>>
+
+    @GET("banner/slider")
+    fun getBanners(): Single<List<Banner>>
 }
 
 fun createApiServiceInstance(): ApiService {

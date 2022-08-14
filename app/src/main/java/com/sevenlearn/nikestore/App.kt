@@ -1,8 +1,11 @@
 package com.sevenlearn.nikestore
 
 import android.app.Application
+import com.sevenlearn.nikestore.data.repo.BannerRepository
+import com.sevenlearn.nikestore.data.repo.BannerRepositoryImpl
 import com.sevenlearn.nikestore.data.repo.ProductRepository
 import com.sevenlearn.nikestore.data.repo.ProductRepositoryImpl
+import com.sevenlearn.nikestore.data.repo.source.BannerRemoteDataSource
 import com.sevenlearn.nikestore.data.repo.source.ProductLocalDataSource
 import com.sevenlearn.nikestore.data.repo.source.ProductRemoteDataSource
 import com.sevenlearn.nikestore.feature.main.MainViewModel
@@ -17,14 +20,16 @@ import timber.log.Timber
 class App : Application() {
     override fun onCreate() {
         super.onCreate()
-        Timber.plant()
+        Timber.plant(Timber.DebugTree())
 
         val myModules = module {
             single { createApiServiceInstance() }
             factory<ProductRepository> { ProductRepositoryImpl(ProductRemoteDataSource(get()),
                 ProductLocalDataSource()
             )}
-            viewModel { MainViewModel(get()) }
+
+            factory<BannerRepository> { BannerRepositoryImpl(BannerRemoteDataSource(get())) }
+            viewModel { MainViewModel(get(),get()) }
         }
 
         startKoin {
