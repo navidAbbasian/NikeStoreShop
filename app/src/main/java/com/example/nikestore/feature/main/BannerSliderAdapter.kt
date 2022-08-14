@@ -8,7 +8,5 @@ class BannerSliderAdapter(fragment: Fragment,val banners:List<Banner>) : Fragmen
     override fun getItemCount(): Int = banners.size
 
 
-    override fun createFragment(position: Int): Fragment {
-        TODO("Not yet implemented")
-    }
+    override fun createFragment(position: Int): Fragment = BannerFragment.newInstance(banners[position])
 }

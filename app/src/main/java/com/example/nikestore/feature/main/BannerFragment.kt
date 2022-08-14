@@ -11,6 +11,7 @@ import com.example.nikestore.data.Banner
 import com.example.nikestore.services.ImageLoadingService
 import com.example.nikestore.view.NikeImageView
 import org.koin.android.ext.android.inject
+import java.lang.IllegalStateException
 
 class BannerFragment : Fragment() {
     val imageLoadingService: ImageLoadingService by inject()
@@ -19,17 +20,34 @@ class BannerFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val imageView = inflater.inflate(R.layout.fragment_banner, container, false) as NikeImageView
-        imageLoadingService.load(imageView,)
-        return
+    ): View {
+        val imageView =
+            inflater.inflate(R.layout.fragment_banner, container, false) as NikeImageView
+
+        val banner =
+            requireArguments().getParcelable<Banner>(EXTRA_KEY_DATA) ?: throw IllegalStateException(
+                "banner can not be null"
+            )
+
+        imageLoadingService.load(imageView, banner.image)
+        return imageView
     }
 
     companion object {
-        fun newInstance(banner: Banner){
+        fun newInstance(banner: Banner): BannerFragment {
+            return BannerFragment().apply {
+                arguments = Bundle().apply {
+                    putParcelable(EXTRA_KEY_DATA, banner)
+                }
+            }
+            /*
+            old version
+
             val bannerFragment=BannerFragment()
-            val bundle=Bundle()
-            bundle.putParcelable(EXTRA_KEY_DATA,banner)
+               val bundle=Bundle()
+               bundle.putParcelable(EXTRA_KEY_DATA,banner)
+                bannerFragment.arguments=bundle*/
+
         }
     }
 

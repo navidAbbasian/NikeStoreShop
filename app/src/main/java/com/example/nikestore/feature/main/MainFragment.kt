@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.nikestore.R
 import com.example.nikestore.common.NikeFragment
+import kotlinx.android.synthetic.main.fragment_main.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
@@ -32,6 +33,8 @@ class MainFragment: NikeFragment() {
 
         mainViewModel.bannerLiveData.observe(viewLifecycleOwner){
             Timber.i(it.toString())
+            val bannerSliderAdapter=BannerSliderAdapter(this,it)
+            bannerSliderViewPager.adapter=bannerSliderAdapter
         }
     }
 }
