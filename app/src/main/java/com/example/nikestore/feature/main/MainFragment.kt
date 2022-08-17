@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.nikestore.R
 import com.example.nikestore.common.NikeFragment
+import com.example.nikestore.common.convertDpToPixel
 import kotlinx.android.synthetic.main.fragment_main.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import timber.log.Timber
@@ -37,7 +38,7 @@ class MainFragment: NikeFragment() {
             bannerSliderViewPager.adapter=bannerSliderAdapter
 
             //set manually height for slider
-            val viewPagerHeight = (bannerSliderViewPager.width *173)/328
+            val viewPagerHeight = (((bannerSliderViewPager.width - convertDpToPixel(32f,requireContext()))*173)/328).toInt()
             val layoutParams = bannerSliderViewPager.layoutParams
             layoutParams.height = viewPagerHeight
             bannerSliderViewPager.layoutParams=layoutParams
