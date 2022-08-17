@@ -11,7 +11,7 @@ import androidx.dynamicanimation.animation.DynamicAnimation
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
 import timber.log.Timber
-
+//all custom functions
 fun convertDpToPixel(dp: Float, context: Context?): Float {
     return if (context != null) {
         val resources = context.resources

@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import com.facebook.drawee.generic.GenericDraweeHierarchy
 import com.facebook.drawee.view.SimpleDraweeView
 
+//use custom view for whenever we want change library
 class NikeImageView:SimpleDraweeView {
     constructor(context: Context?, hierarchy: GenericDraweeHierarchy?) : super(context, hierarchy)
     constructor(context: Context?) : super(context)

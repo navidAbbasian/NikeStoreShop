@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModel
 import com.example.nikestore.R
 import io.reactivex.disposables.CompositeDisposable
 
+//all fragment must extend NikeFragment
 abstract class NikeFragment : Fragment(), NikeView {
     override val rootView: CoordinatorLayout?
         get() = view as CoordinatorLayout
@@ -18,6 +19,8 @@ abstract class NikeFragment : Fragment(), NikeView {
         get() = context
 }
 
+
+//all activity must extend NikeActivity
 abstract class NikeActivity : AppCompatActivity(), NikeView {
     override val rootView: CoordinatorLayout?
         get() = window.decorView.rootView as CoordinatorLayout?
@@ -45,6 +48,7 @@ interface NikeView {
     }
 }
 
+//parent off all viewModel classes
 abstract class NikeViewModel : ViewModel() {
     val compositeDisposable = CompositeDisposable()
     val progressBarLiveData= MutableLiveData<Boolean>()

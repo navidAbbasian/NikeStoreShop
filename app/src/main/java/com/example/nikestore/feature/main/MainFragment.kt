@@ -46,6 +46,8 @@ class MainFragment : NikeFragment() {
             Timber.i(it.toString())
             val bannerSliderAdapter = BannerSliderAdapter(this, it)
             bannerSliderViewPager.adapter = bannerSliderAdapter
+
+            //set manually height banners with layout params
             val viewPagerHeight = (((bannerSliderViewPager.measuredWidth - convertDpToPixel(
                 32f,
                 requireContext()

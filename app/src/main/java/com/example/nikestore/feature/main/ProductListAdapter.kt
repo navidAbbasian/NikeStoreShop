@@ -30,9 +30,11 @@ class ProductListAdapter(val imageLoadingService: ImageLoadingService) :
         fun bindProduct(product: Product) {
             imageLoadingService.load(productIv, product.image)
             titleTv.text = product.title
+            //use custom fun for change rial to toman and style it
             currentPriceTv.text = formatPrice(product.price)
             previousPriceTv.text = formatPrice(product.previous_price)
             previousPriceTv.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+            //use custom fun for set animation on click item
             itemView.implementSpringAnimationTrait()
             itemView.setOnClickListener {
 

@@ -19,7 +19,7 @@ import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
 import timber.log.Timber
-
+//app start from here
 class App : Application() {
     override fun onCreate() {
         super.onCreate()
