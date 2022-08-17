@@ -35,6 +35,13 @@ class MainFragment: NikeFragment() {
             Timber.i(it.toString())
             val bannerSliderAdapter=BannerSliderAdapter(this,it)
             bannerSliderViewPager.adapter=bannerSliderAdapter
+
+            //set manually height for slider
+            val viewPagerHeight = (bannerSliderViewPager.width *173)/328
+            val layoutParams = bannerSliderViewPager.layoutParams
+            layoutParams.height = viewPagerHeight
+            bannerSliderViewPager.layoutParams=layoutParams
+
         }
     }
 }
