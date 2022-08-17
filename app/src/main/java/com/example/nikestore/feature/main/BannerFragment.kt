@@ -15,7 +15,6 @@ import java.lang.IllegalStateException
 
 class BannerFragment : Fragment() {
     val imageLoadingService: ImageLoadingService by inject()
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -23,12 +22,10 @@ class BannerFragment : Fragment() {
     ): View {
         val imageView =
             inflater.inflate(R.layout.fragment_banner, container, false) as NikeImageView
-
         val banner =
             requireArguments().getParcelable<Banner>(EXTRA_KEY_DATA) ?: throw IllegalStateException(
-                "banner can not be null"
+                "Banner cannot be null"
             )
-
         imageLoadingService.load(imageView, banner.image)
         return imageView
     }
@@ -40,15 +37,6 @@ class BannerFragment : Fragment() {
                     putParcelable(EXTRA_KEY_DATA, banner)
                 }
             }
-            /*
-            old version
-
-            val bannerFragment=BannerFragment()
-               val bundle=Bundle()
-               bundle.putParcelable(EXTRA_KEY_DATA,banner)
-                bannerFragment.arguments=bundle*/
-
         }
     }
-
 }

@@ -10,6 +10,7 @@ import com.example.nikestore.data.repo.source.BannerRemoteDataSource
 import com.example.nikestore.data.repo.source.ProductLocalDataSource
 import com.example.nikestore.data.repo.source.ProductRemoteDataSource
 import com.example.nikestore.feature.main.MainViewModel
+import com.example.nikestore.feature.main.ProductListAdapter
 import com.example.nikestore.services.FrescoImageLoadingService
 import com.example.nikestore.services.ImageLoadingService
 import com.example.nikestore.services.http.createApiServiceInstance
@@ -29,12 +30,15 @@ class App : Application() {
         val myModules = module {
             single { createApiServiceInstance() }
             single<ImageLoadingService> { FrescoImageLoadingService() }
-            factory<ProductRepository> { ProductRepositoryImpl(ProductRemoteDataSource(get()),
-                ProductLocalDataSource()
-            )}
-
+            factory<ProductRepository> {
+                ProductRepositoryImpl(
+                    ProductRemoteDataSource(get()),
+                    ProductLocalDataSource()
+                )
+            }
+            factory { ProductListAdapter(get()) }
             factory<BannerRepository> { BannerRepositoryImpl(BannerRemoteDataSource(get())) }
-            viewModel { MainViewModel(get(),get()) }
+            viewModel { MainViewModel(get(), get()) }
         }
 
         startKoin {

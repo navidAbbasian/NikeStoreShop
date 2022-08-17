@@ -2,12 +2,9 @@
 <com.example.nikestore.view.NikeImageView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:roundedCornerRadius="12dp"
     android:paddingStart="16dp"
     android:paddingEnd="16dp"
-    app:roundedCornerRadius="12dp"
-
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<!--app:viewAspectRatio="0.93"-->
-<!-- crate a custom class for view in view package -->
 
 </com.example.nikestore.view.NikeImageView>
