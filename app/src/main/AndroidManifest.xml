@@ -1,18 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.nikestore">
-    <uses-permission android:name="android.permission.INTERNET"/>
+    package="com.explain.nikestore">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.example.nikestore.App"
+        android:name="com.explain.nikestore.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:usesCleartextTraffic="true"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.NikeStore">
-        <activity android:name="com.example.nikestore.feature.main.MainActivity">
+        android:theme="@style/Theme.NikeStore"
+        android:usesCleartextTraffic="true">
+        <activity android:name="com.explain.nikestore.feature.order.OrderHistoryActivity"></activity>
+        <activity android:name="com.explain.nikestore.feature.favorites.FavoriteProductsActivity" />
+        <activity android:name="com.explain.nikestore.feature.checkout.CheckOutActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="expertdevelopers.ir"
+                    android:pathPattern="/appCheckout"
+                    android:scheme="nike" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.explain.nikestore.feature.shipping.ShippingActivity" />
+        <activity
+            android:name="com.explain.nikestore.feature.auth.AuthActivity"
+            android:theme="@style/Theme.Nike.AuthTheme" />
+        <activity android:name="com.explain.nikestore.feature.list.ProductListActivity" />
+        <activity android:name="com.explain.nikestore.feature.product.comment.CommentListActivity" />
+        <activity android:name="com.explain.nikestore.feature.product.ProductDetailActivity" />
+        <activity
+            android:name="com.explain.nikestore.feature.main.MainActivity"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

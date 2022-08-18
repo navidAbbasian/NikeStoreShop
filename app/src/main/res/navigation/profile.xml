@@ -5,6 +5,6 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.nikestore.feature.profile.ProfileFragment"
+        android:name="com.explain.nikestore.feature.profile.ProfileFragment"
         android:label="ProfileFragment" />
 </navigation>
