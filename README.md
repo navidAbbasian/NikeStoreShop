@@ -1,5 +1,4 @@
 # NikeStoreShop
-![alt - Github](https://medium.com/sachininp/getting-started-with-kotlin-programming-language-ff5c9ddb88f9)
-Nike Store Shop for testing. a app with latest tetechnology with kotlin language, mvvm and rx and ...
+![kotlin lang](https://user-images.githubusercontent.com/51839181/185736286-4fa7571f-b1ea-43a9-bb1d-d78e6650f3f1.png)
+Nike Store Shop for testing. a app with latest tetechnology with **kotlin language**, mvvm and rx and ...
 
-Test
