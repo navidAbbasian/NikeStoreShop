@@ -7,7 +7,7 @@
 
 #### This app is written by latest technologies
 
-#### some technologies thst used in this app:
+### some technologies thst used in this app:
 
 - MVVM for Extensibility
 - SOLID for Clean code
@@ -21,6 +21,12 @@
 - Room for Database
 - ViewPager 2
 and ...
+
+### App Features
+
+- Banner Slider for Show Events
+- Horizontal List for Show Products
+-
 
 
 
