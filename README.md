@@ -26,7 +26,7 @@ and ...
 
 - Banner Slider for Show Events
 - Horizontal List for Show Products
--
+- Favorite Products  List
 
 
 
